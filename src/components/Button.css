@@ -1,0 +1,40 @@
+.button {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 20px 40px; /* Base padding */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make the button inline-block */
+  font-size: 18px; /* Base font size */
+  margin: 6px 3px; /* Base margins */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+.button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.button:active {
+  background-color: #397d3c; /* Even darker green when button is clicked */
+}
+
+/* Media query for screens smaller than 600px */
+@media (max-width: 600px) {
+  .button {
+    padding: 15px 30px; /* Adjust padding for smaller screens */
+    font-size: 16px; /* Adjust font size */
+    margin: 4px 2px; /* Adjust margins */
+  }
+}
+
+/* Media query for screens smaller than 400px */
+@media (max-width: 400px) {
+  .button {
+    padding: 12px 25px; /* Further adjust padding for very small screens */
+    font-size: 14px; /* Further adjust font size */
+  }
+}
