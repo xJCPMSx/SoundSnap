@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SoundSnap/static/css/main.141be6ad.css",
+    "main.js": "/SoundSnap/static/js/main.6640786f.js",
+    "index.html": "/SoundSnap/index.html",
+    "main.141be6ad.css.map": "/SoundSnap/static/css/main.141be6ad.css.map",
+    "main.6640786f.js.map": "/SoundSnap/static/js/main.6640786f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.141be6ad.css",
+    "static/js/main.6640786f.js"
+  ]
+}
