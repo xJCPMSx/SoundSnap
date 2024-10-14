@@ -4,26 +4,27 @@ import './Navbar.css';
 
 const Navbar = ({ setSearchTerm }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Função para alternar o menu ao clicar
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  // Fechar o menu ao clicar fora dele
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
+        setMobileMenuOpen(false);
       }
     };
 
-    // Adiciona o listener para cliques no documento
     document.addEventListener('mousedown', handleClickOutside);
-
     return () => {
-      // Remove o listener ao desmontar o componente
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
@@ -36,10 +37,13 @@ const Navbar = ({ setSearchTerm }) => {
           type="text" 
           placeholder="Buscar sons..." 
           className="search-bar" 
-          onChange={(e) => setSearchTerm(e.target.value)} // Atualiza o termo de busca
+          onChange={(e) => setSearchTerm(e.target.value)} 
         />
       </div>
-      <div className="navbar-right">
+      <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+        ☰
+      </button>
+      <div className={`navbar-right ${isMobileMenuOpen ? 'open' : ''}`}>
         <a href="#home">Página Inicial</a>
         <a href="#new">Novos</a>
         <div className="dropdown" ref={dropdownRef}>
