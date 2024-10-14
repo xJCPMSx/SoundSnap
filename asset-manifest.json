@@ -1,41 +1,13 @@
 {
   "files": {
-    "main.css": "/SoundSnap/static/css/main.141be6ad.css",
-    "main.js": "/SoundSnap/static/js/main.3083fa32.js",
-    "reactPlayerYouTube.js": "/SoundSnap/static/js/reactPlayerYouTube.01bd1f48.chunk.js",
-    "reactPlayerSoundCloud.js": "/SoundSnap/static/js/reactPlayerSoundCloud.f0d40d01.chunk.js",
-    "reactPlayerVimeo.js": "/SoundSnap/static/js/reactPlayerVimeo.7a3cbf7d.chunk.js",
-    "reactPlayerMux.js": "/SoundSnap/static/js/reactPlayerMux.d0aa71df.chunk.js",
-    "reactPlayerFacebook.js": "/SoundSnap/static/js/reactPlayerFacebook.442739e8.chunk.js",
-    "reactPlayerStreamable.js": "/SoundSnap/static/js/reactPlayerStreamable.8aa08153.chunk.js",
-    "reactPlayerWistia.js": "/SoundSnap/static/js/reactPlayerWistia.d0ad2576.chunk.js",
-    "reactPlayerTwitch.js": "/SoundSnap/static/js/reactPlayerTwitch.eff66b78.chunk.js",
-    "reactPlayerDailyMotion.js": "/SoundSnap/static/js/reactPlayerDailyMotion.a8780e59.chunk.js",
-    "reactPlayerMixcloud.js": "/SoundSnap/static/js/reactPlayerMixcloud.62e4d38d.chunk.js",
-    "reactPlayerVidyard.js": "/SoundSnap/static/js/reactPlayerVidyard.2b00eacb.chunk.js",
-    "reactPlayerKaltura.js": "/SoundSnap/static/js/reactPlayerKaltura.9e1a121d.chunk.js",
-    "reactPlayerFilePlayer.js": "/SoundSnap/static/js/reactPlayerFilePlayer.33467b58.chunk.js",
-    "reactPlayerPreview.js": "/SoundSnap/static/js/reactPlayerPreview.5025824e.chunk.js",
+    "main.css": "/SoundSnap/static/css/main.9227cc0e.css",
+    "main.js": "/SoundSnap/static/js/main.75c5705b.js",
     "index.html": "/SoundSnap/index.html",
-    "main.141be6ad.css.map": "/SoundSnap/static/css/main.141be6ad.css.map",
-    "main.3083fa32.js.map": "/SoundSnap/static/js/main.3083fa32.js.map",
-    "reactPlayerYouTube.01bd1f48.chunk.js.map": "/SoundSnap/static/js/reactPlayerYouTube.01bd1f48.chunk.js.map",
-    "reactPlayerSoundCloud.f0d40d01.chunk.js.map": "/SoundSnap/static/js/reactPlayerSoundCloud.f0d40d01.chunk.js.map",
-    "reactPlayerVimeo.7a3cbf7d.chunk.js.map": "/SoundSnap/static/js/reactPlayerVimeo.7a3cbf7d.chunk.js.map",
-    "reactPlayerMux.d0aa71df.chunk.js.map": "/SoundSnap/static/js/reactPlayerMux.d0aa71df.chunk.js.map",
-    "reactPlayerFacebook.442739e8.chunk.js.map": "/SoundSnap/static/js/reactPlayerFacebook.442739e8.chunk.js.map",
-    "reactPlayerStreamable.8aa08153.chunk.js.map": "/SoundSnap/static/js/reactPlayerStreamable.8aa08153.chunk.js.map",
-    "reactPlayerWistia.d0ad2576.chunk.js.map": "/SoundSnap/static/js/reactPlayerWistia.d0ad2576.chunk.js.map",
-    "reactPlayerTwitch.eff66b78.chunk.js.map": "/SoundSnap/static/js/reactPlayerTwitch.eff66b78.chunk.js.map",
-    "reactPlayerDailyMotion.a8780e59.chunk.js.map": "/SoundSnap/static/js/reactPlayerDailyMotion.a8780e59.chunk.js.map",
-    "reactPlayerMixcloud.62e4d38d.chunk.js.map": "/SoundSnap/static/js/reactPlayerMixcloud.62e4d38d.chunk.js.map",
-    "reactPlayerVidyard.2b00eacb.chunk.js.map": "/SoundSnap/static/js/reactPlayerVidyard.2b00eacb.chunk.js.map",
-    "reactPlayerKaltura.9e1a121d.chunk.js.map": "/SoundSnap/static/js/reactPlayerKaltura.9e1a121d.chunk.js.map",
-    "reactPlayerFilePlayer.33467b58.chunk.js.map": "/SoundSnap/static/js/reactPlayerFilePlayer.33467b58.chunk.js.map",
-    "reactPlayerPreview.5025824e.chunk.js.map": "/SoundSnap/static/js/reactPlayerPreview.5025824e.chunk.js.map"
+    "main.9227cc0e.css.map": "/SoundSnap/static/css/main.9227cc0e.css.map",
+    "main.75c5705b.js.map": "/SoundSnap/static/js/main.75c5705b.js.map"
   },
   "entrypoints": [
-    "static/css/main.141be6ad.css",
-    "static/js/main.3083fa32.js"
+    "static/css/main.9227cc0e.css",
+    "static/js/main.75c5705b.js"
   ]
 }
