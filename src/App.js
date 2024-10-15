@@ -10,6 +10,7 @@ const sounds = [
   { label: 'Brilha 1', url: process.env.PUBLIC_URL + '/sound/brilha1.ogg' },
   { label: 'Brilha 2', url: process.env.PUBLIC_URL + '/sound/brilha2.ogg' },
   { label: 'Brilha 3', url: process.env.PUBLIC_URL + '/sound/brilha3.ogg' },
+  { label: 'AlejannnPIU', url: process.env.PUBLIC_URL + '/sound/alejannnPIU.ogg' }  // Novo som adicionado
 ];
 
 const buttonImages = [
