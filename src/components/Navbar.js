@@ -4,22 +4,12 @@ import './Navbar.css';
 
 const Navbar = ({ setSearchTerm }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
-        setMobileMenuOpen(false);
       }
     };
 
@@ -40,10 +30,8 @@ const Navbar = ({ setSearchTerm }) => {
           onChange={(e) => setSearchTerm(e.target.value)} 
         />
       </div>
-      <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-        ☰
-      </button>
-      <div className={`navbar-right ${isMobileMenuOpen ? 'open' : ''}`}>
+      <div className="navbar-right">
+        {/* 
         <a href="#home">Página Inicial</a>
         <a href="#new">Novos</a>
         <div className="dropdown" ref={dropdownRef}>
@@ -70,7 +58,8 @@ const Navbar = ({ setSearchTerm }) => {
           )}
         </div>
         <a href="#upload">Enviar</a>
-        <a href="#login">Login</a>
+        <a href="#login">Login</a> 
+        */}
       </div>
     </nav>
   );
