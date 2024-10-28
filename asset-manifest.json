@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/SoundSnap/static/css/main.40ac388c.css",
-    "main.js": "/SoundSnap/static/js/main.864839dd.js",
+    "main.css": "/SoundSnap/static/css/main.9928e652.css",
+    "main.js": "/SoundSnap/static/js/main.5134d698.js",
     "index.html": "/SoundSnap/index.html",
-    "main.40ac388c.css.map": "/SoundSnap/static/css/main.40ac388c.css.map",
-    "main.864839dd.js.map": "/SoundSnap/static/js/main.864839dd.js.map"
+    "main.9928e652.css.map": "/SoundSnap/static/css/main.9928e652.css.map",
+    "main.5134d698.js.map": "/SoundSnap/static/js/main.5134d698.js.map"
   },
   "entrypoints": [
-    "static/css/main.40ac388c.css",
-    "static/js/main.864839dd.js"
+    "static/css/main.9928e652.css",
+    "static/js/main.5134d698.js"
   ]
 }
