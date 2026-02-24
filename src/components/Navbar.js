@@ -2,8 +2,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 
-const Navbar = ({ setSearchTerm }) => {
+const Navbar = ({ setSearchTerm, albums, selectedAlbum, setSelectedAlbum, onAddSound }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newSound, setNewSound] = useState({ label: '', url: '', album: 'Diversos' });
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -19,48 +21,74 @@ const Navbar = ({ setSearchTerm }) => {
     };
   }, []);
 
+  const handleAddSubmit = (e) => {
+    e.preventDefault();
+    if (newSound.label && newSound.url) {
+      onAddSound(newSound);
+      setNewSound({ label: '', url: '', album: 'Diversos' });
+      setShowAddModal(false);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
         <h2>SoundSnap</h2>
-        <input 
-          type="text" 
-          placeholder="Buscar sons..." 
-          className="search-bar" 
-          onChange={(e) => setSearchTerm(e.target.value)} 
-        />
+        <div className="nav-controls">
+          <input
+            type="text"
+            placeholder="Buscar sons..."
+            className="search-bar"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <select
+            className="album-select"
+            value={selectedAlbum}
+            onChange={(e) => setSelectedAlbum(e.target.value)}
+          >
+            {albums.map(album => (
+              <option key={album} value={album}>{album}</option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="navbar-right">
-        {/* 
-        <a href="#home">Página Inicial</a>
-        <a href="#new">Novos</a>
-        <div className="dropdown" ref={dropdownRef}>
-          <a href="#categories" className="dropdown-toggle" onClick={toggleDropdown}>
-            Categorias
-          </a>
-          {isDropdownOpen && (
-            <ul className="dropdown-menu">
-              <li><a href="/pt/categories/anime%20&amp;%20manga/" className="dropdown-item">Anime &amp; Manga</a></li>
-              <li><a href="/pt/categories/games/" className="dropdown-item">Games</a></li>
-              <li><a href="/pt/categories/memes/" className="dropdown-item">Memes</a></li>
-              <li><a href="/pt/categories/movies/" className="dropdown-item">Movies</a></li>
-              <li><a href="/pt/categories/music/" className="dropdown-item">Music</a></li>
-              <li><a href="/pt/categories/politics/" className="dropdown-item">Politics</a></li>
-              <li><a href="/pt/categories/pranks/" className="dropdown-item">Pranks</a></li>
-              <li><a href="/pt/categories/reactions/" className="dropdown-item">Reactions</a></li>
-              <li><a href="/pt/categories/sound%20effects/" className="dropdown-item">Sound Effects</a></li>
-              <li><a href="/pt/categories/sports/" className="dropdown-item">Sports</a></li>
-              <li><a href="/pt/categories/television/" className="dropdown-item">Television</a></li>
-              <li><a href="/pt/categories/tiktok%20trends/" className="dropdown-item">Tiktok Trends</a></li>
-              <li><a href="/pt/categories/viral/" className="dropdown-item">Viral</a></li>
-              <li><a href="/pt/categories/whatsapp%20audios/" className="dropdown-item">Whatsapp Audios</a></li>
-            </ul>
-          )}
-        </div>
-        <a href="#upload">Enviar</a>
-        <a href="#login">Login</a> 
-        */}
+        <button className="add-btn" onClick={() => setShowAddModal(true)}>+ Add Som</button>
       </div>
+
+      {showAddModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Adicionar Novo Som</h3>
+            <form onSubmit={handleAddSubmit}>
+              <input
+                type="text"
+                placeholder="Nome do som"
+                value={newSound.label}
+                onChange={(e) => setNewSound({ ...newSound, label: e.target.value })}
+                required
+              />
+              <input
+                type="text"
+                placeholder="URL do som (ogg/mp3/wav)"
+                value={newSound.url}
+                onChange={(e) => setNewSound({ ...newSound, url: e.target.value })}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Álbum"
+                value={newSound.album}
+                onChange={(e) => setNewSound({ ...newSound, album: e.target.value })}
+              />
+              <div className="modal-actions">
+                <button type="submit">Salvar</button>
+                <button type="button" onClick={() => setShowAddModal(false)}>Cancelar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

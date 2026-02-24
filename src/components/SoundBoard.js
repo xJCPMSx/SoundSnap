@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const SoundBoard = ({ sounds, buttonImages }) => {
+const SoundBoard = ({ sounds, buttonImages, onDeleteSound }) => {
   const [buttonColors, setButtonColors] = useState(Array(sounds.length).fill(buttonImages[0]));
   const audioRefs = useRef(Array(sounds.length).fill(null)); // Armazenar referências aos áudios
 
@@ -27,23 +27,25 @@ const SoundBoard = ({ sounds, buttonImages }) => {
 
   return (
     <div className="soundboard">
-      {sounds.map((sound, index) => (
-        <div key={index} className="sound-button">
+      {sounds.map((sound) => (
+        <div key={sound.id || sound.label} className="sound-button">
           <h3>{sound.label}</h3>
-          <button onClick={() => handlePlay(sound.url, index)} style={{ backgroundColor: 'white', border: 'none' }}>
-            <img src={buttonColors[index]} alt={sound.label} style={{ width: '100px', height: '100px' }} />
+          <span className="album-badge">{sound.album}</span>
+          <button onClick={() => handlePlay(sound.url, (sound.id || sound.label))} className="play-btn">
+            <img src={buttonImages[0]} alt={sound.label} />
           </button>
-          <label style={{ marginTop: '10px' }}>Cor do botão</label>
-          <select
-            onChange={(e) => handleColorChange(index, e)}
-            style={{ marginTop: '5px' }}
-          >
-            {buttonImages.map((image, imgIndex) => (
-              <option key={imgIndex} value={image}>
-                {image.split('/Buttons/')[1].replace(/_/g, ' ').replace('.png', '')}
-              </option>
-            ))}
-          </select>
+
+          <div className="button-controls">
+            {sound.id && (
+              <button
+                className="delete-btn"
+                onClick={() => onDeleteSound(sound.id)}
+                title="Excluir som"
+              >
+                🗑️
+              </button>
+            )}
+          </div>
         </div>
       ))}
     </div>
