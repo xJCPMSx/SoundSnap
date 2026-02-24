@@ -1,25 +1,9 @@
-// src/components/Navbar.js
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 
 const Navbar = ({ setSearchTerm, albums, selectedAlbum, setSelectedAlbum, onAddSound }) => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [newSound, setNewSound] = useState({ label: '', url: '', album: 'Diversos' });
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   const handleAddSubmit = (e) => {
     e.preventDefault();

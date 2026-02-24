@@ -2,28 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const SoundBoard = ({ sounds, buttonImages, onDeleteSound }) => {
-  const [buttonColors, setButtonColors] = useState(Array(sounds.length).fill(buttonImages[0]));
   const audioRefs = useRef(Array(sounds.length).fill(null)); // Armazenar referências aos áudios
-
-  const handlePlay = (url, index) => {
-    // Pausar o áudio se já estiver tocando
-    if (audioRefs.current[index] && !audioRefs.current[index].paused) {
-      audioRefs.current[index].pause();
-      audioRefs.current[index].currentTime = 0; // Reiniciar o áudio
-    } else {
-      // Criar um novo áudio se não houver um ou se o anterior estiver pausado
-      audioRefs.current[index] = new Audio(url);
-      audioRefs.current[index].play();
-    }
-  };
-
-  const handleColorChange = (index, event) => {
-    setButtonColors((prev) => {
-      const newColors = [...prev];
-      newColors[index] = event.target.value;
-      return newColors;
-    });
-  };
 
   return (
     <div className="soundboard">
