@@ -35,7 +35,10 @@ const buttonImages = [
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedAlbum, setSelectedAlbum] = useState('Todos');
-  const [selectedImages, setSelectedImages] = useState({});
+  const [selectedImages, setSelectedImages] = useState(() => {
+    const saved = localStorage.getItem('soundSnap_selectedImages');
+    return saved ? JSON.parse(saved) : {};
+  });
   const [userSounds, setUserSounds] = useState(() => {
     const saved = localStorage.getItem('soundSnap_userSounds');
     return saved ? JSON.parse(saved) : [];
@@ -44,7 +47,9 @@ function App() {
   const allSounds = [...initialSounds, ...userSounds];
 
   const handleImageChange = (label, newImage) => {
-    setSelectedImages((prev) => ({ ...prev, [label]: newImage }));
+    const updatedImages = { ...selectedImages, [label]: newImage };
+    setSelectedImages(updatedImages);
+    localStorage.setItem('soundSnap_selectedImages', JSON.stringify(updatedImages));
   };
 
   const handleAddSound = (newSound) => {
@@ -69,18 +74,18 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar 
-        setSearchTerm={setSearchTerm} 
-        albums={albums} 
-        selectedAlbum={selectedAlbum} 
+      <Navbar
+        setSearchTerm={setSearchTerm}
+        albums={albums}
+        selectedAlbum={selectedAlbum}
         setSelectedAlbum={setSelectedAlbum}
         onAddSound={handleAddSound}
       />
       <div className="soundboard-container">
-        <SoundBoard 
+        <SoundBoard
           sounds={filteredSounds}
-          selectedImages={selectedImages} 
-          handleImageChange={handleImageChange} 
+          selectedImages={selectedImages}
+          handleImageChange={handleImageChange}
           buttonImages={buttonImages}
           onDeleteSound={handleDeleteSound}
         />

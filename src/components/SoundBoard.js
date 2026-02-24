@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const SoundBoard = ({ sounds, buttonImages, onDeleteSound }) => {
+const SoundBoard = ({ sounds, buttonImages, onDeleteSound, selectedImages, handleImageChange }) => {
   const audioRefs = useRef(Array(sounds.length).fill(null)); // Armazenar referências aos áudios
 
   const handlePlay = (url, index) => {
@@ -15,17 +15,32 @@ const SoundBoard = ({ sounds, buttonImages, onDeleteSound }) => {
       audioRefs.current[index].play();
     }
   };
+
   return (
     <div className="soundboard">
-      {sounds.map((sound) => (
+      {sounds.map((sound, index) => (
         <div key={sound.id || sound.label} className="sound-button">
-          <h3>{sound.label}</h3>
+          <h4>{sound.label}</h4>
           <span className="album-badge">{sound.album}</span>
-          <button onClick={() => handlePlay(sound.url, (sound.id || sound.label))} className="play-btn">
-            <img src={buttonImages[0]} alt={sound.label} />
+          <button onClick={() => handlePlay(sound.url, index)} className="play-btn">
+            <img
+              src={selectedImages[sound.label] || buttonImages[0]}
+              alt={sound.label}
+            />
           </button>
 
           <div className="button-controls">
+            <select
+              className="image-select"
+              value={selectedImages[sound.label] || buttonImages[0]}
+              onChange={(e) => handleImageChange(sound.label, e.target.value)}
+            >
+              {buttonImages.map((image, imgIndex) => (
+                <option key={imgIndex} value={image}>
+                  {image.split('/Buttons/')[1].replace(/_/g, ' ').replace('.png', '')}
+                </option>
+              ))}
+            </select>
             {sound.id && (
               <button
                 className="delete-btn"
@@ -45,6 +60,9 @@ const SoundBoard = ({ sounds, buttonImages, onDeleteSound }) => {
 SoundBoard.propTypes = {
   sounds: PropTypes.array.isRequired,
   buttonImages: PropTypes.array.isRequired,
+  onDeleteSound: PropTypes.func.isRequired,
+  selectedImages: PropTypes.object.isRequired,
+  handleImageChange: PropTypes.func.isRequired,
 };
 
 export default SoundBoard;
